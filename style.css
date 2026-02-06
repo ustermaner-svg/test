@@ -20,8 +20,7 @@ h2:hover{
 button:hover{
     color:red;
 }
-button:active,
-button:focus{
+button:active{
     background: yellow !important;
     padding: 20px;
     font-size: 18px;
