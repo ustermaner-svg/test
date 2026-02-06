@@ -36,6 +36,7 @@ button:active{
 }
 .coolbg {
     background-image: url("https://mojo.generalmills.com/api/public/content/_pLFRXFETcuXWg_Z0MhZPw_webp_base.webp?v=1c273e93&t=191ddcab8d1c415fa10fa00a14351227");
+    border-radius:30px;
 }
 button{
     padding: 40px;
@@ -74,4 +75,5 @@ input {
 .blackbox{
     background: black;
     opacity:0.40;
+    border-radius:10px;
 }
