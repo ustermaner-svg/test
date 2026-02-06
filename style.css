@@ -40,10 +40,12 @@ button:active{
 button{
     padding: 40px;
     font-size: 28px;
+    background:pink;
 }
 input{
     padding: 50px;
-    font-size:32px;
+    font-size:45px;
+    background:pink;
 }
 .buttons{
     font-size: 32px;
