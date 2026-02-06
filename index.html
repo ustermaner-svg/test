@@ -8,8 +8,9 @@
     <h2 style = "font-family: Arial"><strong><em>TESTING SITE BACK OFF</em></strong></h2>
   </header>
 <input placeholder = "Enter name" maxlength = "15" name = "name" id = "name"><br>
-<button id = "getAge"><strong>Get Age!</strong></button>
-<p id = "result"></p>
+<button id = "getAge"><strong>Get Age and Gender!!</strong></button>
+<p id = "result"></p><br>
+<p id = "gender"></p>
   <script>
     document.getElementById("getAge").addEventListener('click', ()=>{
       const name = document.getElementById("name").value;
@@ -20,6 +21,13 @@
           console.log(data.age);
         })
       .catch(error => console.error("error",error));
+      fetch(`https://api.genderize.io?name=${name}`)
+        .then(response => response.json)
+        .then(data=>{
+            document.getElementById("gender").textContent = `There is a `+((data.probability)*100)+`% chance that you are a ${data.gender}`;
+            console.log(data.gender +"\n" + data.probability);
+        }
+        .catch(error => console.error('error: ',error);
     }
     );
   </script>
