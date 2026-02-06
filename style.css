@@ -52,7 +52,6 @@ button{
     font-size: 30px;
     color: blueviolet;
     background: black;
-    line-height:20px;
     opacity:0.40;
 }
 input {
@@ -63,4 +62,7 @@ input {
     padding: 0 20px;          
     box-sizing: border-box;  
     background: pink;
+}
+.space{
+    height:10px;
 }
