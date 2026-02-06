@@ -23,11 +23,12 @@ button:hover{
 button:active,
 button:focus{
     background: yellow !important;
+    padding: 20px;
     font-size: 18px;
 }
 .centered{
     display:flex;
-    flex-direction:column;
+    flex-direction:row;
     text-align:center;
     justify-content:center;
     align-items:center;
