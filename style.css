@@ -1,5 +1,5 @@
 body{
-    background: linear-gradient(to right, #FFFFFF, #ff6363);
+    background: linear-gradient(to right, #FFFFFF, #4d0404);
 }
 .bolded{
     font-weight: bold;
@@ -22,11 +22,12 @@ button:hover{
 }
 button:active,
 button:focus{
-    padding: 10px;
+    background: yellow !important;
     font-size: 18px;
 }
 .centered{
     display:flex;
+    flex-direction:column;
     text-align:center;
     justify-content:center;
     align-items:center;
