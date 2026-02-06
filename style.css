@@ -10,6 +10,24 @@ center{
 .black{
     color: black;
 }
+h2:hover{
+    font-weight: italic;
+    color: blueviolet;
+}
+button:hover{
+    color:red;
+}
+button:click{
+    padding: 10px;
+    font-size: 18px;
+}
+.centered{
+    text-align:center;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    gap:10px;
+}
 .coolbg{
     background-image: url("https://mojo.generalmills.com/api/public/content/_pLFRXFETcuXWg_Z0MhZPw_webp_base.webp?v=1c273e93&t=191ddcab8d1c415fa10fa00a14351227");
 }
