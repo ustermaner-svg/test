@@ -46,6 +46,7 @@ button{
     transition: all 0.3s ease;
 }
 input{
+    border-radius:25px;
     padding: 50px;
     font-size:45px;
     background:pink;
