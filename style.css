@@ -11,13 +11,14 @@
     color: black;
 }
 h2:hover{
-    font-weight: italic;
+    font-style: italic;
     color: blueviolet;
 }
 button:hover{
     color:red;
 }
-button:click{
+button:active,
+button:focus{
     padding: 10px;
     font-size: 18px;
 }
