@@ -16,9 +16,10 @@
       fetch(`https://api.agify.io?name=${name}`)
         .then(response => response.json())
         .then(data => {
-          document.getElementById("result").textContent = 
-              `Your age for ${data.name}: ${data.age}`;
-        }
+          document.getElementById("result").textContent = `Your age for ${data.name}: ${data.age}`;
+          console.log(data.age);
+        })
+      .catch(error => console.error("error",error));
     }
     );
   </script>
