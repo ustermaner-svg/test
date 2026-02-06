@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><em>TESTING!!!</em></title>
+  </head>
+  <body>
+  <header>
+    <h2 style = "font-family: Arial"><strong><em>TESTING SITE BACK OFF</em></strong></h2>
+  </header>
+<input placeholder = "Enter name" maxlength = "15" name = "name" id = "name">
+<buttom id = "getAge"><strong>Get Age!</strong></buttom>
+<p id = "result"></p>
+  <script>
+    document.getElementById("getAge").addEventListener('click', ()=>{
+      const name = document.getElementById("name").value;
+      fetch(`https://api.agify.io?name=${name}`)
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById("result").textContent = 
+              `Your age for ${data.name}: ${data.age}`;
+        }
+    }
+    );
+  </script>
+  </body>
+</html>
