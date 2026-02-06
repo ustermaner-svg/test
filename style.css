@@ -46,6 +46,13 @@ button{
     cursor:pointer;
     transition: all 0.4s ease;
 }
+.results{
+    font-family:sans-serif;
+    font-style:italic;
+    color: blueviolet;
+    background: pink;
+    opacity:0.80;
+}
 input {
     border-radius: 30px;
     border: none;
@@ -54,11 +61,4 @@ input {
     padding: 0 20px;          
     box-sizing: border-box;  
     background: pink;
-}
-.results{
-    font-family:sans-serif;
-    font-style:italic;
-    color: blueviolet;
-    background: pink;
-    opacity:0.80;
 }
