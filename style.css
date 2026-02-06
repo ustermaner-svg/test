@@ -53,8 +53,6 @@ button{
     color: blueviolet;
     padding:0;
     margin:0;
-    background: black;
-    opacity:0.40;
 }
 input {
     border-radius: 30px;
@@ -72,6 +70,8 @@ input {
     color: blueviolet;
     padding:0;
     margin:0;
+}
+.blackbox{
     background: black;
     opacity:0.40;
 }
