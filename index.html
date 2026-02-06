@@ -22,7 +22,7 @@
         })
       .catch(error => console.error("error",error));
       fetch(`https://api.genderize.io?name=${name}`)
-        .then(response => response.json)
+        .then(response => response.json())
         .then(data=>{
             document.getElementById("gender").textContent = `There is a `+((data.probability)*100)+`% chance that you are a ${data.gender}`;
             console.log(data.gender +"\n" + data.probability);
