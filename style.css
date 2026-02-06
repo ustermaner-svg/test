@@ -22,12 +22,12 @@ button:hover{
 }
 button:active{
     background: yellow !important;
-    padding: 20px;
-    font-size: 18px;
+    padding: 50px;
+    font-size: 40px;
 }
 .centered{
     display:flex;
-    flex-direction:row;
+    flex-direction:column;
     text-align:center;
     justify-content:center;
     align-items:center;
@@ -36,4 +36,19 @@ button:active{
 }
 .coolbg {
     background-image: url("https://mojo.generalmills.com/api/public/content/_pLFRXFETcuXWg_Z0MhZPw_webp_base.webp?v=1c273e93&t=191ddcab8d1c415fa10fa00a14351227");
+}
+button{
+    padding: 40px;
+    font-size: 28px;
+}
+.buttons{
+    font-size: 32px;
+    padding: 40px;
+}
+.results{
+    font-family:"sans shreif";
+    font-style:italic;
+    color: blueviolet;
+    background: pink;
+    opacity:0.80;
 }
