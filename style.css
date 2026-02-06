@@ -41,7 +41,7 @@ button{
     padding: 40px;
     border:none;
     font-size: 28px;
-    background:pink;
+    background:yellow;
     border-radius:20px;
     cursor:pointer;
     transition: all 0.4s ease;
@@ -49,9 +49,11 @@ button{
 .results{
     font-family:sans-serif;
     font-style:italic;
+    font-size: 30px;
     color: blueviolet;
-    background: pink;
-    opacity:0.80;
+    background: black;
+    line-height:20px;
+    opacity:0.40;
 }
 input {
     border-radius: 30px;
@@ -60,5 +62,5 @@ input {
     font-size: 40px;          
     padding: 0 20px;          
     box-sizing: border-box;  
-    background: blue;
+    background: pink;
 }
