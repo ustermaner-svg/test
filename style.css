@@ -50,7 +50,7 @@ input{
     padding: 40px;
 }
 .results{
-    font-family:"sans sherif";
+    font-family:sans-serif;
     font-style:italic;
     color: blueviolet;
     background: pink;
