@@ -1,10 +1,15 @@
-button:active{
+x1button:active{
     background: yellow !important;
     padding: 50px;
     font-size: 40px;
 }
 button:hover{
     color:red;
+}
+input:not(:placeholder-shown){
+    border-color:blueviolet;
+    box-shadow:0 0 12px blueviolet;
+    transition: 0.3 ease
 }
 .centered{
     display:flex;
