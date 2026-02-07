@@ -39,13 +39,12 @@
           document.getElementById("gender").textContent = `There is a `+(Math.ceil((data.probability)*100))+`% chance that you are a ${data.gender}`;
           console.log(data.gender +"\n" + data.probability);
         });
-    console.log("sisis");
+    });
     const input = document.getElementById("name");
     input.addEventListener('input', ()=> {
         input.classList.remove("typing");
         void input.offsetWidth;
-        input.classList.add("typing");
-    });
+        input.classList.add("typing");}
   </script>
   </body>
 </html>
