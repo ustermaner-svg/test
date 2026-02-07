@@ -25,22 +25,20 @@
   <script>
     document.getElementById("getAge").addEventListener('click', ()=>{
       const name = document.getElementById("name").value;
-      fetch(`https://api.agify.io?name=${name}`)
+      fetch(`http://localhost:3000/getAgeGender`, {
+        method: "POST",
+        headers: {
+         "Content-Type":"application/json",
+        },   
+      body: JSON.stringify({name:name})
+    })
         .then(response => response.json())
         .then(data => {
           document.getElementById("result").textContent = `Your age for ${name}: ${data.age}`;
           console.log(data.age);
-        })
-      .catch(error => console.error("error",error));
-      fetch(`https://api.genderize.io?name=${name}`)
-        .then(response => response.json())
-        .then(data=>{
-            document.getElementById("gender").textContent = `There is a `+(Math.ceil((data.probability)*100))+`% chance that you are a ${data.gender}`;
-            console.log(data.gender +"\n" + data.probability);
-        })
-        .catch(error => console.error('error: ',error));
-    }
-    );
+          document.getElementById("gender").textContent = `There is a `+(Math.ceil((data.probability)*100))+`% chance that you are a ${data.gender}`;
+          console.log(data.gender +"\n" + data.probability);
+        });
     console.log("sisis");
     const input = document.getElementById("name");
     input.addEventListener('input', ()=> {
