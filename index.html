@@ -35,13 +35,18 @@
       fetch(`https://api.genderize.io?name=${name}`)
         .then(response => response.json())
         .then(data=>{
-            document.getElementById("gender").textContent = `There is a `+((data.probability)*100)+`% chance that you are a ${data.gender}`;
+            document.getElementById("gender").textContent = `There is a `+(Math.ceil((data.probability)*100))+`% chance that you are a ${data.gender}`;
             console.log(data.gender +"\n" + data.probability);
         })
         .catch(error => console.error('error: ',error));
     }
     );
     console.log("sisis");
+    document.getElementById("name").addEventListener('input', ()=> {
+        input.classList.remove("typing");
+        void input.offsetWidth;
+        input.classList.add("typing");
+    });
   </script>
   </body>
 </html>
