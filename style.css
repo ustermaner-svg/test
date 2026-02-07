@@ -6,13 +6,14 @@ x1button:active{
 button:hover{
     color:red;
 }
+input:placeholder-shown{
+    transition:3.5s ease;
+}
 input:not(:placeholder-shown){
     box-shadow:0 0 3300px blueviolet;
     transition: 3.5s ease;
 }
-input:placeholder-shown{
-    transition:3.5s ease;
-}
+
 .centered{
     display:flex;
     flex-direction:column;
