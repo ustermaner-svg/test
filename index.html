@@ -42,7 +42,7 @@
         .catch(error => {
             console.error(error);
             document.getElementById("result").textContent = `Error, if this happends a lot, it probably means the \n APIs or BACKEND are down (try again later).`; 
-        }
+        })
     });
     const input = document.getElementById("name");
     input.addEventListener('input', ()=> {
