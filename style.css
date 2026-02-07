@@ -7,8 +7,11 @@ button:hover{
     color:red;
 }
 input:not(:placeholder-shown){
-    box-shadow:0 0 12px blueviolet;
-    transition: 0.5s ease;
+    box-shadow:0 0 3300px blueviolet;
+    transition: 3.5s ease;
+}
+input:placeholder-shown{
+    transition:3.5s ease;
 }
 .centered{
     display:flex;
