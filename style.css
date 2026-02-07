@@ -13,7 +13,16 @@ input:not(:placeholder-shown){
     box-shadow:0 0 3300px blueviolet;
     transition: 3.5s ease;
 }
-
+@keyframes wiggle {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  50% { transform: translateX(2px); }
+  75% { transform: translateX(-2px); }
+  100% { transform: translateX(0); }
+}
+.typing {
+  animation: wiggle 0.2s;
+}
 .centered{
     display:flex;
     flex-direction:column;
