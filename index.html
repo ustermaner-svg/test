@@ -39,6 +39,10 @@
           document.getElementById("gender").textContent = `There is a `+(Math.ceil((data.probability)*100))+`% chance that you are a ${data.gender}`;
           console.log(data.gender +"\n" + data.probability);
         });
+        .catch(ERROR =>{
+            console.error(error);
+            document.getElementById("result").textContent = `Error, if this happends a lot, it probably means the \n APIs or BACKEND are down (try again later).`; 
+        }
     });
     const input = document.getElementById("name");
     input.addEventListener('input', ()=> {
