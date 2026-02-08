@@ -46,6 +46,7 @@
           document.getElementById("image").src = data.url;
         })
         .catch(error => {
+            console.log(error);
             const resultBox = document.querySelector(".blackbox");
             resultBox.classList.remove("flash-success", "flash-error");
             void resultBox.offsetWidth; 
