@@ -45,10 +45,10 @@
 
           const data = await res.json();
 
-          if(!agOK){
+          if(!data.agOK){
              console.warn(`No AGIFY API tokens left`); 
           }
-          if(!gnOK){
+          if(!data.gnOK){
             console.warn(`No GENDERIZE API tokens left`);
           }
           // Check if Agify & Genderize succeeded
