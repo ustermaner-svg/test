@@ -34,12 +34,20 @@
     })
         .then(response => response.json())
         .then(data => {
+           const resultBox = document.querySelector(".blackbox");
+          resultBox.classList.remove("flash-success", "flash-error");
+          void resultBox.offsetWidth; 
+          resultBox.classList.add("flash-success");
           document.getElementById("result").textContent = `Your age for ${name}: ${(data.age)%50}`;
           console.log(data.age);
           document.getElementById("gender").textContent = `There is a `+(Math.ceil((data.probability)*100))+`% chance that you are a ${data.gender}`;
           console.log(data.gender +"\n" + data.probability);
         })
         .catch(error => {
+            const resultBox = document.querySelector(".blackbox");
+            resultBox.classList.remove("flash-success", "flash-error");
+            void resultBox.offsetWidth; 
+            resultBox.classList.add("flash-error");
             console.error(error);
             document.getElementById("result").textContent = `Error, if this happends a lot, it probably means the`;
             document.getElementById("gender").textContent = `APIs or BACKEND are down (try again later).`; 
