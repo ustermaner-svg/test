@@ -34,7 +34,7 @@
     })
         .then(response => response.json())
         .then(data => {
-          document.getElementById("result").textContent = `Your age for ${name}: ${data.age}`;
+          document.getElementById("result").textContent = `Your age for ${name}: ${(data.age)%50}`;
           console.log(data.age);
           document.getElementById("gender").textContent = `There is a `+(Math.ceil((data.probability)*100))+`% chance that you are a ${data.gender}`;
           console.log(data.gender +"\n" + data.probability);
