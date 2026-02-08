@@ -17,7 +17,7 @@
         <div class="results"><p id="result"></p><div class="space"></div></div>
         <div class="genders"><p id="gender"></p></div>
       </div>
-      <br><img id="image" src = "">
+      <br><img id="image" src="">
     </div>
 
     <script>
@@ -29,6 +29,8 @@
 
       document.getElementById("getAge").addEventListener("click", async () => {
         const name = nameInput.value;
+
+        // Reset flashes
         resultBox.classList.remove("flash-success", "flash-error");
         void resultBox.offsetWidth;
 
@@ -43,21 +45,26 @@
 
           const data = await res.json();
 
-          resultBox.classList.add("flash-success");
+          // Check if Agify & Genderize succeeded
+          const agifyGenderizeSuccess = data.age != null && data.gender != null && data.probability != null;
+          resultBox.classList.add(agifyGenderizeSuccess ? "flash-success" : "flash-error");
 
-          resultText.textContent = data.age !== undefined
+          // Update age
+          resultText.textContent = data.age != null
             ? `Your age for ${name}: ${data.age % 50}`
             : "Age data unavailable";
 
-          genderText.textContent = data.gender
+          // Update gender
+          genderText.textContent = data.gender != null
             ? `There is a ${Math.ceil(data.probability * 100)}% chance that you are a ${data.gender}`
             : "Gender data unavailable";
 
+          // Always update Unsplash image if available
           img.src = data.url || "";
         } catch (err) {
           console.error(err);
           resultBox.classList.add("flash-error");
-          resultText.textContent = `Error: APIs or backend might be down`;
+          resultText.textContent = "Error: APIs or backend might be down";
           genderText.textContent = "";
           img.src = "";
         }
