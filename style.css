@@ -7,9 +7,15 @@ body {
     color: #fff;
     overflow-x: hidden;
 }
+#image{
+    border-radius:30px;
+    opacity: 0.6;
+    transition: 3s ease;
+    box-shadow: 0 0 120px yellow;
+}
 /* ===================== Header ===================== */
 .coolbg {
-    background-image: url("https://mojo.generalmills.com/api/public/content/_pLFRXFETcuXWg_Z0MhZPw_webp_base.webp?v=1c273e93&t=191ddcab8d1c415fa10fa00a14351227");
+    /*background-image: url("https://mojo.generalmills.com/api/public/content/_pLFRXFETcuXWg_Z0MhZPw_webp_base.webp?v=1c273e93&t=191ddcab8d1c415fa10fa00a14351227");*/
     border-radius: 30px;
     opacity: 0.83;
     text-align: center;
@@ -18,7 +24,7 @@ body {
 
 header h2 {
     font-family: Arial, sans-serif;
-    font-size: 36px;
+    font-size: 70px;
     color: #00ffff;
     text-shadow: 0 0 5px #00ffff, 0 0 10px #8a2be2;
     transition: all 0.3s ease;
