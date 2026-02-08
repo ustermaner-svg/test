@@ -45,8 +45,14 @@
 
           const data = await res.json();
 
+          if(!agOK){
+             console.warn(`No AGIFY API tokens left`); 
+          }
+          if(!gnOK){
+            console.warn(`No GENDERIZE API tokens left`);
+          }
           // Check if Agify & Genderize succeeded
-          const agifyGenderizeSuccess = data.age != null && data.gender != null && data.probability != null;
+          const agifyGenderizeSuccess = data.agOK && data.gn;
           resultBox.classList.add(agifyGenderizeSuccess ? "flash-success" : "flash-error");
 
           // Update age
