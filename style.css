@@ -1,40 +1,73 @@
-button:active{
-    background: yellow !important;
-    padding: 50px;
+/* ===================== Body & Background ===================== */
+body {
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle at center, #0f0f3f, #4d0404, #1a1a1a);
+    font-family: 'Segoe UI', sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* ===================== Header ===================== */
+.coolbg {
+    background-image: url("https://mojo.generalmills.com/api/public/content/_pLFRXFETcuXWg_Z0MhZPw_webp_base.webp?v=1c273e93&t=191ddcab8d1c415fa10fa00a14351227");
+    border-radius: 30px;
+    opacity: 0.83;
+    text-align: center;
+    padding: 20px 0;
+}
+
+header h2 {
+    font-family: Arial, sans-serif;
+    font-size: 36px;
+    color: #00ffff;
+    text-shadow: 0 0 5px #00ffff, 0 0 10px #8a2be2;
+    transition: all 0.3s ease;
+}
+
+header h2:hover {
+    font-style: italic;
+    color: #ff69b4;
+    text-shadow: 0 0 10px #ff69b4, 0 0 20px #00ffff;
+}
+
+/* ===================== Centered Layout ===================== */
+.centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    gap: 15px;
+    padding-top: 20px;
+}
+
+/* ===================== Inputs ===================== */
+input {
+    border-radius: 30px;
+    border: none;
+    height: 80px;
+    width: 400px;
     font-size: 40px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    background: #ff69b4;
+    color: #fff;
+    caret-color: #00ffff;
+    transition: box-shadow 0.4s ease, background 0.4s ease, transform 0.2s ease;
 }
-button:hover{
-    color:red;
+
+input::placeholder {
+    color: #8a2be2;
+    opacity: 0.7;
+    transition: color 0.3s ease;
 }
-input:placeholder-shown{
-    transition:3.5s ease;
-}
-input:not(:placeholder-shown){
-    box-shadow:0 0 3300px blueviolet;
-    transition: 3.5s ease;
-}
-@keyframes wiggle {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-2px); }
-  50% { transform: translateX(2px); }
-  75% { transform: translateX(-2px); }
-  100% { transform: translateX(0); }
-}
-.typing {
-  animation: wiggle 0.2s;
-}
-input.typing {
-    box-shadow:
-        0 0 5px #00ffff,
-        0 0 10px #00ffff,
-        0 0 20px #8a2be2,
-        0 0 30px #8a2be2,
-        0 0 40px #4b0082;
-    transition: box-shadow 1.3s ease;
-}
+
+/* Typing animation neon glow */
 input.typing {
     animation: neonPulse 1s infinite alternate;
 }
+
 @keyframes neonPulse {
     0% {
         box-shadow:
@@ -43,6 +76,7 @@ input.typing {
             0 0 20px #8a2be2,
             0 0 30px #8a2be2,
             0 0 40px #4b0082;
+        transform: scale(1);
     }
     100% {
         box-shadow:
@@ -51,78 +85,69 @@ input.typing {
             0 0 40px #8a2be2,
             0 0 60px #8a2be2,
             0 0 80px #4b0082;
+        transform: scale(1.02);
     }
 }
-.centered{
-    display:flex;
-    flex-direction:column;
-    text-align:center;
-    justify-content:flex-start;
-    align-items:center;
-    height:100vh;
-    gap:10px;
-}
-.coolbg {
-    background-image: url("https://mojo.generalmills.com/api/public/content/_pLFRXFETcuXWg_Z0MhZPw_webp_base.webp?v=1c273e93&t=191ddcab8d1c415fa10fa00a14351227");
-    border-radius:30px;
-    opacity: 0.83;
-}
-button{
-    padding: 40px;
-    border:none;
-    font-size: 28px;
-    background:yellow;
-    border-radius:20px;
-    cursor:pointer;
-    transition: all 0.4s ease;
-}
-.genders{
-    font-family:sans-serif;
-    font-style:italic;
-    font-size: 30px;
-    color: blueviolet;
-    padding:0;
-    margin:0;
-}
-input {
-    border-radius: 30px;
+
+/* ===================== Buttons ===================== */
+button {
+    padding: 25px 50px;
     border: none;
-    height: 80px;          
-    font-size: 40px;          
-    padding: 0 20px;          
-    box-sizing: border-box;  
-    background: pink;
-}
-.results{
-    font-family:sans-serif;
-    font-style:italic;
-    font-size: 30px;
-    color: blueviolet;
-    padding:0;
-    margin:0;
-}
-.blackbox{
-    background: black;
-    opacity:0.40;
-    border-radius:10px;
-}
-body{
-    background: linear-gradient(to right, #FFFFFF, #4d0404);
-}
-.bolded{
-    font-weight: bold;
-}
-.big{
-    font-size: 32px;
-}
-.center{
-    text-align: center;
-}
-.black{
+    font-size: 28px;
+    background: #00ffff;
     color: black;
-}
-h2:hover{
-    font-style: italic;
-    color: blueviolet;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px #00ffff, 0 0 20px #8a2be2;
 }
 
+button:hover {
+    color: white;
+    background: #8a2be2;
+    box-shadow: 0 0 20px #00ffff, 0 0 40px #8a2be2, 0 0 60px #4b0082;
+    transform: scale(1.05);
+}
+
+button:active {
+    background: #4b0082;
+    box-shadow: 0 0 10px #00ffff, 0 0 20px #8a2be2;
+    transform: scale(0.95);
+}
+
+/* ===================== Results Box ===================== */
+.blackbox {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    padding: 20px;
+    width: 450px;
+    text-align: center;
+    box-shadow: 0 0 15px #00ffff, 0 0 25px #8a2be2;
+}
+
+/* Results Text Neon */
+.results, .genders {
+    font-family: sans-serif;
+    font-style: italic;
+    font-size: 28px;
+    color: #00ffff;
+    text-shadow: 0 0 5px #8a2be2, 0 0 10px #00ffff;
+    margin: 5px 0;
+}
+
+/* Flicker animation for results */
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+    20%, 22%, 24%, 55% { opacity: 0.4; }
+}
+
+.results,
+.genders {
+    animation: flicker 2s infinite;
+}
+
+/* ===================== Utility Classes ===================== */
+.bolded { font-weight: bold; }
+.big { font-size: 32px; }
+.center { text-align: center; }
+.black { color: black; }
