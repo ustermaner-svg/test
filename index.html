@@ -24,7 +24,7 @@
   <br><img id = "image">
 </div>
   <script>
-    console.log("version 1.3 html!");
+    console.log("version 1.4 html!");
     document.getElementById("getAge").addEventListener('click', ()=>{
       const name = document.getElementById("name").value;
       fetch(`https://backend-9pa3.onrender.com/getAgeGender`, {
@@ -49,8 +49,8 @@
           console.log(data.gender +"\n" + data.probability);
           document.getElementById("image").src = data.url;
         })
-        .catch(error => {
-            console.log(error);
+        .catch(async (error) => {
+            console.log("ERROR: "+error);
             const resultBox = document.querySelector(".blackbox");
             resultBox.classList.remove("flash-success", "flash-error");
             void resultBox.offsetWidth; 
