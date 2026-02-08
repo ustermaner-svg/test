@@ -1,71 +1,73 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href = "style.css" rel = "stylesheet">
-    <title><em>TESTING!!!</em></title>
+    <link href="style.css" rel="stylesheet">
+    <title>TESTING SITE</title>
   </head>
   <body>
-  <header class = "bolded big black coolbg center">
-    <h2 style = "font-family: Arial"><strong><em>TESTING SITE BACK OFF</em></strong></h2>
-  </header>
-<div class = "centered">
-  <div class = "buttons">
-  <input class = "center" placeholder = "Enter name" maxlength = "15" name = "name" id = "name"><br><br><br><br>
-  <button class = "center" id = "getAge"><strong>Get Age and Gender!!</strong></button>
-  </div>
-  <div class = "blackbox">
-  <div class = "results">
-  <p id = "result"></p><div class = "space"></div>
-  </div>
-  <div class = "genders">
-  <p id = "gender"></p>
-  </div>
-  </div>
-  <br><img id = "image">
-</div>
-  <script>
-    console.log("version 1.4 html!");
-    document.getElementById("getAge").addEventListener('click', ()=>{
-      const name = document.getElementById("name").value;
-      fetch(`https://backend-9pa3.onrender.com/getAgeGender`, {
-        method: "POST",
-        headers: {
-         "Content-Type":"application/json",
-        },   
-      body: JSON.stringify({name:name, query: name})
-    })
-        .then(response => {
-            if (!response.ok) throw new Error("Server error");
-            return response.json();
-        })
-        .then(data => {
-          const resultBox = document.querySelector(".blackbox");
-          resultBox.classList.remove("flash-success", "flash-error");
-          void resultBox.offsetWidth; 
+    <header class="bolded big black coolbg center">
+      <h2 style="font-family: Arial"><strong><em>TESTING SITE BACK OFF</em></strong></h2>
+    </header>
+    <div class="centered">
+      <div class="buttons">
+        <input class="center" placeholder="Enter name" maxlength="15" name="name" id="name"><br><br><br><br>
+        <button class="center" id="getAge"><strong>Get Age and Gender!!</strong></button>
+      </div>
+      <div class="blackbox">
+        <div class="results"><p id="result"></p><div class="space"></div></div>
+        <div class="genders"><p id="gender"></p></div>
+      </div>
+      <br><img id="image">
+    </div>
+
+    <script>
+      const nameInput = document.getElementById("name");
+      const resultBox = document.querySelector(".blackbox");
+      const resultText = document.getElementById("result");
+      const genderText = document.getElementById("gender");
+      const img = document.getElementById("image");
+
+      document.getElementById("getAge").addEventListener("click", async () => {
+        const name = nameInput.value;
+        resultBox.classList.remove("flash-success", "flash-error");
+        void resultBox.offsetWidth;
+
+        try {
+          const res = await fetch("https://backend-9pa3.onrender.com/getAgeGender", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, query: name })
+          });
+
+          if (!res.ok) throw new Error("Server error");
+
+          const data = await res.json();
+
           resultBox.classList.add("flash-success");
-          document.getElementById("result").textContent = `Your age for ${name}: ${(data.age)%50}`;
-          console.log(data.age);
-          document.getElementById("gender").textContent = `There is a `+(Math.ceil((data.probability)*100))+`% chance that you are a ${data.gender}`;
-          console.log(data.gender +"\n" + data.probability);
-          document.getElementById("image").src = data.url;
-        })
-        .catch(async (error) => {
-            console.log("ERROR: "+error);
-            const resultBox = document.querySelector(".blackbox");
-            resultBox.classList.remove("flash-success", "flash-error");
-            void resultBox.offsetWidth; 
-            resultBox.classList.add("flash-error");
-            console.error(error);
-            document.getElementById("result").textContent = `Error, if this happends a lot, it probably means the`;
-            document.getElementById("gender").textContent = `APIs or BACKEND are down (try again later). ${name}`; 
-        })
-    });
-    const input = document.getElementById("name");
-    input.addEventListener('input', ()=> {
-        input.classList.remove("typing");
-        void input.offsetWidth;
-        input.classList.add("typing");
-    });
-  </script>
+
+          resultText.textContent = data.age !== undefined
+            ? `Your age for ${name}: ${data.age % 50}`
+            : "Age data unavailable";
+
+          genderText.textContent = data.gender
+            ? `There is a ${Math.ceil(data.probability * 100)}% chance that you are a ${data.gender}`
+            : "Gender data unavailable";
+
+          img.src = data.url || "";
+        } catch (err) {
+          console.error(err);
+          resultBox.classList.add("flash-error");
+          resultText.textContent = `Error: APIs or backend might be down`;
+          genderText.textContent = "";
+          img.src = "";
+        }
+      });
+
+      nameInput.addEventListener("input", () => {
+        nameInput.classList.remove("typing");
+        void nameInput.offsetWidth;
+        nameInput.classList.add("typing");
+      });
+    </script>
   </body>
 </html>
