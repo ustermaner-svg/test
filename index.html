@@ -21,6 +21,7 @@
   <p id = "gender"></p>
   </div>
   </div>
+  <br><img id = "image">
 </div>
   <script>
     document.getElementById("getAge").addEventListener('click', ()=>{
@@ -30,7 +31,7 @@
         headers: {
          "Content-Type":"application/json",
         },   
-      body: JSON.stringify({name:name})
+      body: JSON.stringify({name:name, query: name})
     })
         .then(response => response.json())
         .then(data => {
@@ -42,6 +43,7 @@
           console.log(data.age);
           document.getElementById("gender").textContent = `There is a `+(Math.ceil((data.probability)*100))+`% chance that you are a ${data.gender}`;
           console.log(data.gender +"\n" + data.probability);
+          document.getElementById("image").src = data.url;
         })
         .catch(error => {
             const resultBox = document.querySelector(".blackbox");
