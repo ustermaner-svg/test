@@ -23,6 +23,36 @@ input:not(:placeholder-shown){
 .typing {
   animation: wiggle 0.2s;
 }
+input.typing {
+    box-shadow:
+        0 0 5px #00ffff,
+        0 0 10px #00ffff,
+        0 0 20px #8a2be2,
+        0 0 30px #8a2be2,
+        0 0 40px #4b0082;
+    transition: box-shadow 1.3s ease;
+}
+input.typing {
+    animation: neonPulse 1s infinite alternate;
+}
+@keyframes neonPulse {
+    0% {
+        box-shadow:
+            0 0 5px #00ffff,
+            0 0 10px #00ffff,
+            0 0 20px #8a2be2,
+            0 0 30px #8a2be2,
+            0 0 40px #4b0082;
+    }
+    100% {
+        box-shadow:
+            0 0 10px #00ffff,
+            0 0 20px #00ffff,
+            0 0 40px #8a2be2,
+            0 0 60px #8a2be2,
+            0 0 80px #4b0082;
+    }
+}
 .centered{
     display:flex;
     flex-direction:column;
