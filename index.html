@@ -52,7 +52,7 @@
             resultBox.classList.add("flash-error");
             console.error(error);
             document.getElementById("result").textContent = `Error, if this happends a lot, it probably means the`;
-            document.getElementById("gender").textContent = `APIs or BACKEND are down (try again later).`; 
+            document.getElementById("gender").textContent = `APIs or BACKEND are down (try again later). ${name}`; 
         })
     });
     const input = document.getElementById("name");
