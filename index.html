@@ -52,7 +52,7 @@
             console.warn(`No GENDERIZE API tokens left`);
           }
           // Check if Agify & Genderize succeeded
-          const agifyGenderizeSuccess = data.agOK && data.gn;
+          const agifyGenderizeSuccess = data.agOK && data.gnOK;
           resultBox.classList.add(agifyGenderizeSuccess ? "flash-success" : "flash-error");
 
           // Update age
