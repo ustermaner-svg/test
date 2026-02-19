@@ -37,12 +37,14 @@
           if (getCookie("darkmode")==="true"){
               document.cookie = "darkmode=false; max-age=3600; path=/"
               darkL.classList.remove("dark-mode");
+              darkL.textContent = "Dark Mode";
           }
           else{ 
               document.cookie = "darkmode=true; max-age=3600; path=/"
               darkL.classList.add("dark-mode");
+              darkL.textContent = "White Mode";
           }
-      }
+      });
       window.addEventListener("load", () => {
             if (getCookie("darkmode") === "true") {
                     darkL.classList.add("dark-mode");
