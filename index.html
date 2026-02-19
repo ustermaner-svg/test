@@ -8,6 +8,8 @@
     <header class="bolded big black coolbg center">
       <h2 style="font-family: Arial"><strong><em>TESTING SITE BACK OFF</em></strong></h2>
     </header>
+    <br>
+    <button id = "dark">Dark Mode</button>
     <div class="centered">
       <div class="buttons">
         <input class="center" placeholder="Enter name" maxlength="15" name="name" id="name"><br><br><br><br>
@@ -25,7 +27,27 @@
       const resultBox = document.querySelector(".blackbox");
       const resultText = document.getElementById("result");
       const genderText = document.getElementById("gender");
+      const darkL = document.getElementById("dark");
       const img = document.getElementById("image");
+      const getCookie = name=>{
+          const match = document.cookie.match(RegExp('(^| )'+name+'=([^;]+)'));
+          return (match? match[2]: "Not Found");
+      }
+      darkL.addEventListener("click",async ()=> {
+          if (getCookie("darkmode")==="true"){
+              document.cookie = "darkmode=false; max-age=3600; path=/"
+              darkL.classList.remove("dark-mode");
+          }
+          else{ 
+              document.cookie = "darkmode=true; max-age=3600; path=/"
+              darkL.classList.add("dark-mode");
+          }
+      }
+      window.addEventListener("load", () => {
+            if (getCookie("darkmode") === "true") {
+                    darkL.classList.add("dark-mode");
+            }
+      });
 
       document.getElementById("getAge").addEventListener("click", async () => {
         const name = nameInput.value;
