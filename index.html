@@ -94,14 +94,14 @@
             : "Gender data unavailable";
           if  (data.url) document.cookie = `img=${data.url}; max-age=33600; path=/`;
           // Always update Unsplash image if available
-          button.style.backgroundImage = `url(${data.url})` || `url(${getCookie("img")})`;
+          button.style.backgroundImage = `url(${getCookie("img")})`;
           
         } catch (err) {
           console.error(err);
           resultBox.classList.add("flash-error");
           resultText.textContent = "Error: APIs or backend might be down";
           genderText.textContent = "";
-          button.style.backgroundImage = `url(${getCookie("img")})`;
+          button.style.backgroundImage = data.url? `url(${data.url})`:`url(${getCookie("img")})`;
         }
       });
 
