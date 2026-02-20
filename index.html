@@ -35,12 +35,12 @@
       }
       darkL.addEventListener("click",async ()=> {
           if (getCookie("darkmode")==="true"){
-              document.cookie = "darkmode=false; max-age=3600; path=/"
+              document.cookie = "darkmode=false; max-age=33600; path=/"
               document.body.classList.remove("dark-mode");
               darkL.textContent = "Dark Mode";
           }
           else{ 
-              document.cookie = "darkmode=true; max-age=3600; path=/"
+              document.cookie = "darkmode=true; max-age=33600; path=/"
               document.body.classList.add("dark-mode");
               darkL.textContent = "White Mode";
           }
