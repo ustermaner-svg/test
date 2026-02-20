@@ -5,6 +5,7 @@ body {
     background: radial-gradient(circle at center, #0f0f3f, #4d0404, #1a1a1a);
     font-family: 'Segoe UI', sans-serif;
     color: #fff;
+    transition: 3s ease;
     overflow-x: hidden;
 }
 #dark {
@@ -15,7 +16,8 @@ body {
 }
 .dark-mode{
     background-size: cover;
-    background-image: url("https://static.wikia.nocookie.net/dark-netflix/images/f/fd/Dark_Title_Screen.jpg/revision/latest/scale-to-width-down/1200?cb=20171111233324");
+    transition: 3s ease;
+    background-image: url("https://www.rafflespaint.com/cdn/shop/products/PURE_BLACK_RP0-1_1800x1800.jpg");
 }
 #image{
     border-radius:30px;
