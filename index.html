@@ -13,7 +13,7 @@
     <div class="centered">
       <div class="buttons">
         <input class="center" placeholder="Enter name" maxlength="15" name="name" id="name"><br><br><br><br>
-        <button class="center" id="getAge"><strong>Get Age and Gender!!</strong></button>
+        <button class="center" id="getAge" style = "background-size: cover; background-position: center; background-repeat: no-repeat;"><strong>Get Age and Gender!!</strong></button>
       </div>
       <div class="blackbox">
         <div class="results"><p id="result"></p><div class="space"></div></div>
@@ -28,7 +28,7 @@
       const resultText = document.getElementById("result");
       const genderText = document.getElementById("gender");
       const darkL = document.getElementById("dark");
-      const img = document.getElementById("image");
+      const button = document.getElementById("getAge");
       const getCookie = name=>{
           const match = document.cookie.match(RegExp('(^| )'+name+'=([^;]+)'));
           return (match? match[2]: "Not Found");
@@ -51,11 +51,11 @@
                     darkL.textContent = "White Mode";
             }
             if(getCookie("img")){
-                document.getElementById("getAge").style.backgroundImage = `url(${getCookie("img")})`;
+                button.style.backgroundImage = `url(${getCookie("img")})`;
             }
       });
 
-      document.getElementById("getAge").addEventListener("click", async () => {
+      button.addEventListener("click", async () => {
         const name = nameInput.value;
 
         // Reset flashes
@@ -94,13 +94,14 @@
             : "Gender data unavailable";
           if  (data.url) document.cookie = `img=${data.url}; max-age=33600; path=/`;
           // Always update Unsplash image if available
-          document.getElementById("getAge").style.backgroundImage = `url(${data.url})` || `url(${getCookie("img")})`;
+          button.style.backgroundImage = `url(${data.url})` || `url(${getCookie("img")})`;
+          
         } catch (err) {
           console.error(err);
           resultBox.classList.add("flash-error");
           resultText.textContent = "Error: APIs or backend might be down";
           genderText.textContent = "";
-          document.getElementById("getAge").style.backgroundImage = `url(${getCookie("img")})`;
+          button.style.backgroundImage = `url(${getCookie("img")})`;
         }
       });
 
