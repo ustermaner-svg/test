@@ -11,7 +11,7 @@
     <br>
     <button id = "dark">Dark Mode</button>
     <button id = "history">Show history</button>
-    <ul id= "hlist" style = "font-size: 0px; position: absolute; top: 110px; left: 20px; color: blueviolet; animation: neonPulse 1s infinite alternate;">
+    <ul id= "hlist" style = "font-size: 0px; position: absolute; top: 130px; left: 20px; color: blueviolet; animation: neonPulse 1s infinite alternate;">
       <li id = "his1"></li>
       <li id = "his2"></li>
       <li id = "his3"></li>
@@ -112,10 +112,10 @@
               document.cookie = `name=${name};max-age=10000;path=/`;
               document.cookie = `age=${data.age}; max-age=10000;path=/`;
               document.cookie = `gender=${data.gender}; max-age=10000; path=/`;
-            his1.textContent = name; 
             his2.textContent = data.age;
             his3.textContent = data.gender; 
           }
+          his1.textContent = name; 
           // Update age
           resultText.textContent = data.age != null
             ? `Your age for ${name}: ${data.age % 50}`
