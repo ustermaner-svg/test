@@ -51,7 +51,7 @@
                     darkL.textContent = "White Mode";
             }
             if(getCookie("img")){
-                img.src = getCookie("img");
+                document.getElementById("getAge").style.backgroundImage = `url(${getCookie("img")})`;
             }
       });
 
@@ -94,13 +94,13 @@
             : "Gender data unavailable";
           if  (data.url) document.cookie = `img=${data.url}; max-age=33600; path=/`;
           // Always update Unsplash image if available
-          img.src = data.url || getCookie("img");
+          document.getElementById("getAge").style.backgroundImage = `url(${data.url})` || `url(${getCookie("img")})`;
         } catch (err) {
           console.error(err);
           resultBox.classList.add("flash-error");
           resultText.textContent = "Error: APIs or backend might be down";
           genderText.textContent = "";
-          img.src = getCookie("img");
+          document.getElementById("getAge").style.backgroundImage = `url(${getCookie("img")})`;
         }
       });
 
