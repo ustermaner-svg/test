@@ -10,6 +10,12 @@
     </header>
     <br>
     <button id = "dark">Dark Mode</button>
+    <button id = "history">Show history</button>
+    <ul id= "hlist" style = "font-size: 0px; position: absolute; top: 40px; left: 20px; color: yellow;">
+      <li id = "his1"></li>
+      <li id = "his2"></li>
+      <li id = "his3"></li>
+    </ul>
     <div class="centered">
       <div class="buttons">
         <input class="center" placeholder="Enter name" maxlength="15" name="name" id="name"><br><br><br><br>
@@ -29,10 +35,17 @@
       const genderText = document.getElementById("gender");
       const darkL = document.getElementById("dark");
       const button = document.getElementById("getAge");
+      const history = document.getElementById("history");
+      const his1 = document.getElementById("his1");
+      const his2 = document.getElementById("his2");
+      const his3 = document.getElementById("his3");
+      var hisclick = false;
+      const history1 = document.getElementById("hlist");
       const getCookie = name=>{
           const match = document.cookie.match(RegExp('(^| )'+name+'=([^;]+)'));
           return (match? match[2]: "Not Found");
       }
+      const opposite = param => !param;
       darkL.addEventListener("click",async ()=> {
           if (getCookie("darkmode")==="true"){
               document.cookie = "darkmode=false; max-age=33600; path=/"
@@ -53,8 +66,21 @@
             if(getCookie("img")){
                 button.style.backgroundImage = `url(${getCookie("img")})`;
             }
+            his1.textContent = getCookie("name"); 
+            his2.textContent = getCookie("age");
+            his3.textContent = getCookie("gender"); 
       });
-
+      history.addEventListener("click", async() =>{
+        hisclick = opposite(hisclick);
+        if (hisclick){
+            history.textContent = "Hide history";
+            history1.style.fontSize = "40px";
+        }
+        else{
+          history.textContent = "Show history";
+          history1.style.fontSize = "0px";
+        }
+      });
       button.addEventListener("click", async () => {
         const name = nameInput.value;
 
@@ -82,12 +108,19 @@
           // Check if Agify & Genderize succeeded
           const agifyGenderizeSuccess = data.agOK && data.gnOK;
           resultBox.classList.add(agifyGenderizeSuccess ? "flash-success" : "flash-error");
-
+          if (agifyGenderizeSuccess){
+              document.cookie = `name=${name};max-age=10000;path=/`;
+              document.cookie = `age=${data.age}; max-age=10000;path=/`;
+              document.cookie = `gender=${data.gender}; max-age=10000; path=/`;
+            his1.textContent = name; 
+            his2.textContent = data.age;
+            his3.textContent = data.gender; 
+          }
           // Update age
           resultText.textContent = data.age != null
             ? `Your age for ${name}: ${data.age % 50}`
             : "Age data unavailable";
-
+            
           // Update gender
           genderText.textContent = data.gender != null
             ? `There is a ${Math.ceil(data.probability * 100)}% chance that you are a ${data.gender}`
@@ -101,7 +134,7 @@
           resultBox.classList.add("flash-error");
           resultText.textContent = "Error: APIs or backend might be down";
           genderText.textContent = "";
-          button.style.backgroundImage = data.url? `url(${data.url})`:`url(${getCookie("img")})`;
+          button.style.backgroundImage = `url(${getCookie("img")})`;
         }
       });
 
