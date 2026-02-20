@@ -7,8 +7,13 @@ body {
     color: #fff;
     overflow-x: hidden;
 }
+#dark {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
 .dark-mode{
-    background: linear-gradient(at right, yellow, red);
+    background-image: url(https://dark-netflix.fandom.com/wiki/Dark);
 }
 #image{
     border-radius:30px;
