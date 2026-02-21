@@ -59,6 +59,7 @@
           }
       });
       window.addEventListener("load", () => {
+            console.log("Version 1.1");
             if (getCookie("darkmode") === "true") {
                     document.body.classList.add("dark-mode");
                     darkL.textContent = "White Mode";
@@ -89,7 +90,7 @@
         // Reset flashes
         resultBox.classList.remove("flash-success", "flash-error");
         void resultBox.offsetWidth;
-        console.log("Fetching....");
+        console.log(`Fetching -> ${name}...`);
         try {
           const res = await fetch("https://backend-9pa3.onrender.com/getAgeGender", {
             method: "POST",
@@ -100,7 +101,9 @@
           if (!res.ok) throw new Error("Server error");
 
           const data = await res.json();
-          console.log("Fetched!");
+          console.log(`Fetched ${name}!`);
+
+          
           if(!data.agOK){
              console.warn(`No AGIFY API tokens left`); 
           }
