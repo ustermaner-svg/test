@@ -66,9 +66,11 @@
             if(getCookie("img")){
                 button.style.backgroundImage = `url(${getCookie("img")})`;
             }
+            console.log("Setting cookies...");
             his1.textContent = getCookie("name"); 
             his2.textContent = getCookie("age");
             his3.textContent = getCookie("gender"); 
+            console.log("Cookies set!");
       });
       history.addEventListener("click", async() =>{
         hisclick = opposite(hisclick);
@@ -87,14 +89,14 @@
         // Reset flashes
         resultBox.classList.remove("flash-success", "flash-error");
         void resultBox.offsetWidth;
-
+        console.log("Fetching....");
         try {
           const res = await fetch("https://backend-9pa3.onrender.com/getAgeGender", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ name, query: name })
           });
-
+          
           if (!res.ok) throw new Error("Server error");
 
           const data = await res.json();
@@ -109,11 +111,13 @@
           const agifyGenderizeSuccess = data.agOK && data.gnOK;
           resultBox.classList.add(agifyGenderizeSuccess ? "flash-success" : "flash-error");
           if (agifyGenderizeSuccess){
+              console.log("Setting cookies...");
               document.cookie = `name=${name};max-age=10000;path=/`;
               document.cookie = `age=${data.age%50}; max-age=10000;path=/`;
               document.cookie = `gender=${data.gender}; max-age=10000; path=/`;
             his2.textContent = data.age;
-            his3.textContent = data.gender; 
+            his3.textContent = data.gender;
+            console.log("Cookies saved!");
           }
           his1.textContent = name; 
           // Update age
