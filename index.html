@@ -59,7 +59,7 @@
           }
       });
       window.addEventListener("load", () => {
-            console.log("Version 1.1");
+            console.log("Version 1.15");
             if (getCookie("darkmode") === "true") {
                     document.body.classList.add("dark-mode");
                     darkL.textContent = "White Mode";
@@ -123,6 +123,7 @@
             console.log("Cookies saved!");
           }
           his1.textContent = name; 
+          console.log("Requests today: "+ data.DRC);
           // Update age
           resultText.textContent = data.age != null
             ? `Your age for ${name}: ${data.age % 50}`
