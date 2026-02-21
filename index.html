@@ -110,7 +110,7 @@
           resultBox.classList.add(agifyGenderizeSuccess ? "flash-success" : "flash-error");
           if (agifyGenderizeSuccess){
               document.cookie = `name=${name};max-age=10000;path=/`;
-              document.cookie = `age=${data.age}; max-age=10000;path=/`;
+              document.cookie = `age=${data.age%50}; max-age=10000;path=/`;
               document.cookie = `gender=${data.gender}; max-age=10000; path=/`;
             his2.textContent = data.age;
             his3.textContent = data.gender; 
