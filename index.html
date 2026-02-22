@@ -55,14 +55,14 @@
           else{ 
               document.cookie = "darkmode=true; max-age=33600; path=/"
               document.body.classList.add("dark-mode");
-              darkL.textContent = "White Mode";
+              darkL.textContent = "Light Mode";
           }
       });
       window.addEventListener("load", () => {
             console.log("Version 1.15");
             if (getCookie("darkmode") === "true") {
                     document.body.classList.add("dark-mode");
-                    darkL.textContent = "White Mode";
+                    darkL.textContent = "Light Mode";
             }
             if(getCookie("img")){
                 button.style.backgroundImage = `url(${getCookie("img")})`;
@@ -112,7 +112,7 @@
           resultBox.classList.add(agifyGenderizeSuccess ? "flash-success" : "flash-error");
           if (agifyGenderizeSuccess){
               console.log("Setting cookies...");
-              document.cookie = `name=${name};max-age=10000;path=/`;
+              document.cookie = `name=${name}; max-age=10000; path=/`;
               document.cookie = `age=${data.age%50}; max-age=10000;path=/`;
               document.cookie = `gender=${data.gender}; max-age=10000; path=/`;
             his2.textContent = data.age %50;
