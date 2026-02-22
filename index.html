@@ -86,8 +86,6 @@
       });
       button.addEventListener("click", async () => {
         const name = nameInput.value;
-
-        // Reset flashes
         resultBox.classList.remove("flash-success", "flash-error");
         void resultBox.offsetWidth;
         console.log(`Fetching -> ${name}...`);
