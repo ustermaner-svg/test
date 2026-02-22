@@ -110,7 +110,6 @@
           if(!data.gnOK){
             console.warn(`No GENDERIZE API tokens left`);
           }
-          // Check if Agify & Genderize succeeded
           const agifyGenderizeSuccess = data.agOK && data.gnOK;
           resultBox.classList.add(agifyGenderizeSuccess ? "flash-success" : "flash-error");
           if (agifyGenderizeSuccess){
@@ -124,17 +123,13 @@
           }
           his1.textContent = name; 
           console.log("Requests today: "+ data.DRC);
-          // Update age
           resultText.textContent = data.age != null
             ? `Your age for ${name}: ${data.age % 50}`
             : "Age data unavailable";
-            
-          // Update gender
           genderText.textContent = data.gender != null
             ? `There is a ${Math.ceil(data.probability * 100)}% chance that you are a ${data.gender}`
             : "Gender data unavailable";
           if  (data.url) document.cookie = `img=${data.url}; max-age=33600; path=/`;
-          // Always update Unsplash image if available
           button.style.backgroundImage = `url(${getCookie("img")})`;
           
         } catch (err) {
